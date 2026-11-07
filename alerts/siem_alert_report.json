@@ -3,7 +3,7 @@
     "organization": "Sqrock IT Solutions",
     "suite": "PEER'S SIEM Log Analyzer v2.0",
     "developer": "Mohammed Peer Siddiqui",
-    "generated_at": "2026-11-07T19:37:27.992104",
+    "generated_at": "2026-11-07T19:49:43.774507",
     "log_source": "C:\\Users\\PERSONAL\\Desktop\\Internship Sqrock\\Day13_SIEM_Log_Analysis\\logs\\security_events.log",
     "total_events_parsed": 25,
     "total_alerts_generated": 7
@@ -112,9 +112,9 @@
         "failed_attempts": 4,
         "targeted_users": [
           "service_sql",
+          "admin",
           "administrator",
-          "root",
-          "admin"
+          "root"
         ],
         "time_span_seconds": 15.0,
         "first_seen": "2026-11-07 08:45:10",

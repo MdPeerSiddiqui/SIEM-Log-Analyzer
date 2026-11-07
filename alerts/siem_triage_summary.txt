@@ -1,7 +1,7 @@
 ================================================================================
         SQROCK IT SOLUTIONS - SIEM SECURITY INCIDENT TRIAGE SUMMARY
 ================================================================================
-Generated At       : 2026-11-07T19:37:27.992104
+Generated At       : 2026-11-07T19:49:43.774507
 Analyzed Log Path  : C:\Users\PERSONAL\Desktop\Internship Sqrock\Day13_SIEM_Log_Analysis\logs\security_events.log
 Total Log Events   : 25
 Total Threat Alerts: 7
@@ -48,7 +48,7 @@ High Severity      : 3
   Alert ID        : ALRT-BF-203_0_113_88
   MITRE Technique : T1110.001 (Credential Access)
   Affected Entity : Source IP: 203.0.113.88
-  Details         : {"attacker_ip": "203.0.113.88", "failed_attempts": 4, "targeted_users": ["service_sql", "administrator", "root", "admin"], "time_span_seconds": 15.0, "first_seen": "2026-11-07 08:45:10", "last_seen": "2026-11-07 08:45:25"}
+  Details         : {"attacker_ip": "203.0.113.88", "failed_attempts": 4, "targeted_users": ["service_sql", "admin", "administrator", "root"], "time_span_seconds": 15.0, "first_seen": "2026-11-07 08:45:10", "last_seen": "2026-11-07 08:45:25"}
   Remediation     : Enforce immediate IP block on firewall for 203.0.113.88 and enforce account lockout threshold.
 --------------------------------------------------------------------------------
 [ALERT #07] Multiple Failed Authentication Attempts (Brute Force / Password Spray) [HIGH]
